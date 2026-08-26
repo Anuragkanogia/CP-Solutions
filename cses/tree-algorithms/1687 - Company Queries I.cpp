@@ -45,8 +45,8 @@ void solve(){
 		cin>>a;
 	 up[i][0] = a; 
 	}
+	 for(int i = 1;i<= 21;i++){
 	for(int u = 1; u<= n;u++){
- for(int i = 1;i<= 21;i++){
 up[u][i] = up[up[u][i-1]][i-1];
  }
  }
