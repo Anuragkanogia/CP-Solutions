@@ -29,11 +29,11 @@ const int N = 1e7 + 10;
 const int MAXN = 200005;
 const int LOG = 32; // 2^30 > 10^9
 
-int up[LOG][MAXN];
+int up[MAXN][LOG];
 int getkthancestor(int u, int k) {
     for (int i = 0; i < LOG; i++) {
         if (k & (1LL << i)) {
-            u = up[i][u]; // FIXED: up[power][node]
+            u = up[u][i]; // FIXED: up[power][node]
         }
     }
     return u;
@@ -46,11 +46,11 @@ cin>>n>>q;
 for(int i = 1;i<= n;i++){
 	int a;
 	cin>>a;
-	up[0][i] = a;
+	up[i][0] = a;
 } 
 for(int i = 1;i<=31;i++){
  for(int u = 1;u<= n;u++){
- 		up[i][u] = up[i-1][up[i-1][u]];
+ 		up[u][i] = up[up[u][i-1]][i-1];
  	}
  }
  while(q--){
