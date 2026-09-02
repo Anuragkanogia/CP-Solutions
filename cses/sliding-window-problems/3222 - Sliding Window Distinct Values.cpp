@@ -40,11 +40,12 @@ for(int i = 0;i< k;i++){
 cout<<mp.size()<<" ";
 for(int i = k;i< n;i++){
 	
-	mp[a[i-k]]--;
+
+	mp[a[i]]++;
+		mp[a[i-k]]--;
 	if(mp[a[i-k]] == 0){
 		mp.erase(a[i-k]);
 	}
-	mp[a[i]]++;
 	cout<<mp.size()<<" ";
 }
  
