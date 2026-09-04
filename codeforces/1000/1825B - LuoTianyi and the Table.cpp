@@ -31,6 +31,7 @@ void solve(){
  int n,m;
  cin>>n>>m;
  int k = n*m;
+ k = n* m;
  vector<int>a(k);
  for(int i = 0;i< k;i++){
  	cin>>a[i];
