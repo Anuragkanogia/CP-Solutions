@@ -36,16 +36,18 @@ void solve(){
  	adj[u].push_back({v,w});
  	adj[v].push_back({u,w});
  }
+ //Prim's algo
  priority_queue<pair<int,int> , vector<pair<int,int>> , greater<pair<int,int>>> pq;
  pq.push({0,1});
  int ans= 0;
- vector<int> vis(n+ 1, 0);
+
+ vector<int> vis(n+ 1, 0); 
  while(pq.empty()== false){
  	int node = pq.top().second;
  	int dist = pq.top().first;
 	pq.pop();
  		if(vis[node] == 1)continue;
- 	vis[node] = 1;
+ 		vis[node] = 1;
  	ans += dist;
  	for(auto it: adj[node]){
  		int wt = it.second;
