@@ -29,28 +29,20 @@ const int N = 1e7 + 10;
 int cnt = 0;
  int n,m;
 void dfs(int node,int parent, vector<vector<int>>& adj, vector<int>& a, int mconsec){
-	if(mconsec > m)return;
-	 
-	 	 bool isLeaf = true;
-
-    for (auto it : adj[node]) {
-
-        if (it == parent)
-            continue;
-
-        isLeaf = false;
-
-        if (a[it] == 1) {
-            dfs(it, node, adj, a, mconsec + 1);
-        }
-        else {
-            dfs(it, node, adj, a, 0);
-        }
-    }
-
-    if (isLeaf)
-        cnt++;
- }
+	if(mconsec > m){
+		return;
+	}
+	bool isleaf = true;
+	for(auto it : adj[node]){
+		if(it == parent)continue;
+		
+		isleaf = false;
+		if(a[it] == 1)dfs(it, node, adj, a, mconsec +1);
+		else dfs(it , node , adj, a, 0);
+	}
+	if(isleaf == true)cnt++;
+	
+	}
 void solve(){
  cnt= 0;
 
