@@ -28,7 +28,7 @@ const int N = 1e7 + 10;
 #define DEBUG(x) cerr << #x << ": " << x << '\n'
 vector<vector<int>> adj;
 int ans = 0;
-vector<int> h;
+vector<int> h;//height of subtree rooted at u
 void dfs(int u, int p){
 	int mx = 0;
 int smx = 0;
