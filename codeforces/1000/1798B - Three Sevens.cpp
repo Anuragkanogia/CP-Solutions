@@ -28,46 +28,41 @@ const int N = 1e7 + 10;
 #define DEBUG(x) cerr << #x << ": " << x << '\n'
 
 void solve(){
-int m;
-cin >> m;
-
-vector<int> last(50001, 0);
-
-for(int i = 1; i <= m; i++) {
-    int n;
-    cin >> n;
-
-    for(int j = 0; j < n; j++) {
-        int x;
-        cin >> x;
-        last[x] = i;
-    }
-}
-
-vector<int> ans(m + 1, -1);
-
-for(int i = 1; i <= m; i++) {
-    bool found = false;
-
-    for(int j = 1; j <= 50000; j++) {
-        if(last[j] == i) {
-            ans[i] = j;
-            found = true;
-            break;
-        }
-    }
-
-    if(!found) {
-        cout << -1 << '\n';
-        return;
-    }
-}
-
-for(int i = 1; i <= m; i++) {
-    cout << ans[i] << " ";
-}
-
-cout << '\n';
+ int m;
+ cin>>m;
+ vector<int> last(50001,0);
+ 
+ for(int i = 1;i<=m;i++){
+ 	int n;
+ 	cin>>n;
+ 	for(int j = 0;j<n;j++){
+ 		int x;
+ 		cin>>x;
+ 		last[x] =  i;
+ 	}
+ }
+ vector<int> ans(m +1, -1);
+ for(int i = 1;i<= m;i++){
+ 	bool found = false;
+ 	for(int j = 0;j<=50000;j++){
+ 		if(last[j] == i){
+ 			found = true;
+ 			ans[i] = j;
+ 			break;
+ 		}
+ 	}
+ 	if(found == false){
+ 		cout<<-1<<endl;
+ 		return;
+ 	}
+ 	
+ }
+ 
+ for(int i = 1;i<= m;i++){
+ 	cout<<ans[i]<<" ";
+ }
+ 
+ cout<<endl;
     
    }
 int32_t main()
