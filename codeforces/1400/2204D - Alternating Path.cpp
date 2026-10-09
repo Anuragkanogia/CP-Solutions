@@ -33,13 +33,14 @@ bool bipartite(int src, vector<vector<int>>& adj,
     q.push(src);
 
     color[src] = 0;
+    cnt[color[src]]++;
     bool ok = true;
 
     while (!q.empty()) {
         int node = q.front();
         q.pop();
 
-        cnt[color[node]]++;
+        
 
         for (auto it : adj[node]) {
             if (color[it] == color[node]) {
@@ -47,6 +48,7 @@ bool bipartite(int src, vector<vector<int>>& adj,
             }
             else if (color[it] == -1) {
                 color[it] = color[node] ^ 1;
+                cnt[color[it]]++;
                 q.push(it);
             }
         }
