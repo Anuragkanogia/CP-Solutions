@@ -20,8 +20,10 @@ const int N = 1e7 + 10;
 #define DEBUG(x) cerr << #x << ": " << x << '\n'
 
 void solve() {
-   int n;
-cin >> n;
+int n;
+
+
+cin>>n;
  
 vector<int> a(n);
 for (int i = 0; i < n; i++) {
