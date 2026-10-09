@@ -1,11 +1,3 @@
-// Problem: B. Going to the Cinema
-// Contest: Codeforces - VK Cup 2022 - Отборочный раунд (Engine)
-// URL: https://codeforces.com/problemset/problem/1781/B
-// Memory Limit: 512 MB
-// Time Limit: 2000 ms
-// 
-// Powered by CP Editor (https://cpeditor.org)
-
 #include <bits/stdc++.h>
 #define ll long long
 #define int long long 
@@ -28,18 +20,18 @@ const int N = 1e7 + 10;
 #define DEBUG(x) cerr << #x << ": " << x << '\n'
 
 void solve() {
-  int n;
+   int n;
 cin >> n;
-
+ 
 vector<int> a(n);
 for (int i = 0; i < n; i++) {
     cin >> a[i];
 }
-
+ 
 sort(all(a));
-
+ 
 int ans = 0;
-
+ 
 for (int k = 0; k <= n; k++) {
      if (k == 0 || a[k - 1] < k) {
         if (k == n || a[k] > k) {
