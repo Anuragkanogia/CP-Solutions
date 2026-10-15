@@ -21,17 +21,28 @@ const int N = 1e7 + 10;
 
 void solve() {
 int n, m;
-cin>> n>>m;
-vector< int> a(n +m);
-for(int i = 0;i< n +m;i++){
-  cin>>a[i];
-}
-int sum = 0;
-sort(a.begin(), a.end() -1);
-reverse(all(a));
-for(int i =0;i< n;i++)sum+= a[i];
+cin >> n >> m;
 
-cout<<sum<<endl;
+vector<int> a(n);
+vector<int> b(m);
+
+for (int i = 0; i < n; i++) cin >> a[i];
+for (int i = 0; i < m; i++) cin >> b[i];
+
+long long sum = b[m - 1];
+
+for (int i = 0; i < m - 1; i++) {
+    a.push_back(b[i]);
+}
+
+sort(all(a));
+reverse(all(a));
+
+for (int i = 0; i < n - 1; i++) {
+    sum += a[i];
+}
+
+cout << sum << endl;
 }
 int32_t main()
 {
