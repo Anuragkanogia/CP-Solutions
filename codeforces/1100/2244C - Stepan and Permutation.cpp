@@ -27,13 +27,18 @@ void solve() {
   cin>>a[i];
  }
  int sum = x+ y;
- int diff = abs(x - y);
-int g = __gcd(x, y);
+ int diff =__gcd(x, y);
+
  for(int i =1;i<=n;i++){
- if(a[i] %g != i % g){
-  cout<<"NO"<<endl;
-  return;
- }
+  if(a[i] != i){
+    int curr = abs(a[i] - i);
+    if(curr % x !=0 && curr % y != 0 && 
+      curr% sum != 0 && (diff == 0 || curr % diff != 0)){
+        cout<<"NO"<<endl;
+        return;
+      }
+
+  }
  }
  cout<<"YES"<<endl;
 }
