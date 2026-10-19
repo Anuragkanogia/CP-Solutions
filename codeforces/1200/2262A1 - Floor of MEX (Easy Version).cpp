@@ -28,28 +28,27 @@ void solve() {
  }
  vector<int> p(n + 1, 0);
 
-for (int i = 0; i < n; i++) {
-    int k = i + 1;
-    int x = a[i];
-
-    int l = k * x;
-    int r = min(n, k * (x + 1));
-
-    if (l < n) {
-        p[l]++;
-        p[r]--;
-    }
+for(int i =0;i< n;i++){
+  int k = ( i+ 1);
+  int x = a[i];
+  int l = k*x;
+  int r = min(k* ( x+ 1) , n);
+if(l<n) {
+  p[l]++;
+p[r]--;
 }
-     vector<int> B;
-        int cur = 0;
-
-        for (int y = 0; y < n; y++) {
-            cur += p[y];
-
-            if (cur == 0) {
-                B.push_back(y);
-            }
-        }
+}
+vector<int> finalp(n+1, 0);
+finalp[0] = p[0];
+for(int i = 1;i< n;i++){
+finalp[i] = finalp[i-1] + p[i];
+}
+vector<int> B;
+for(int i = 0;i< n;i++){
+  if(finalp[i] == 0){
+    B.push_back(i);
+  }
+}
 
         cout << B.size() << '\n';
         for (int y : B) {
