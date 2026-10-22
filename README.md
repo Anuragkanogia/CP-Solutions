@@ -8,20 +8,20 @@ Codeforces, LeetCode, CSES, CodeChef &amp; GeeksforGeeks solutions, organized cl
 
 Synced automatically by SolveBase.
 
-**Total solved: 125**
+**Total solved: 126**
 
 ## Codeforces
 
 Solutions by [anuragsah522](https://codeforces.com/profile/anuragsah522), organized by difficulty rating.
 
-**Solved: 83**
+**Solved: 84**
 
 | Difficulty | Solved |
 | --- | --- |
 | [800](./codeforces/800) | 12 |
 | [900](./codeforces/900) | 1 |
 | [1000](./codeforces/1000) | 19 |
-| [1100](./codeforces/1100) | 7 |
+| [1100](./codeforces/1100) | 8 |
 | [1200](./codeforces/1200) | 7 |
 | [1300](./codeforces/1300) | 1 |
 | [1400](./codeforces/1400) | 9 |
