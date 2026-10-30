@@ -20,59 +20,55 @@ const int N = 1e7 + 10;
 #define DEBUG(x) cerr << #x << ": " << x << '\n'
 
 void solve() {
- int n , l ,r;
- cin>> n>>l>>r;
- vector<int> a(n);
+ int n, l, r;
+cin >> n >> l >> r;
 
- for(int i = 0;i< n;i++){
-  cin>>a[i];
- }
- sort(all(a));
-long long cnt1 = 0, cnt2 = 0;
+vector<int> a(n);
+for(int i = 0; i < n; i++) cin >> a[i];
+
+sort(a.begin(), a.end());
+
+long long cnt = 0;
 
 for(int i = 0; i < n; i++){
 
+    // Lower bound: first element >= l - a[i]
     int lo = i + 1, hi = n - 1;
-
-    // Count pairs with sum <= r
-    int ans = i;
+    int lb = n;
 
     while(lo <= hi){
         int mid = (lo + hi) / 2;
 
-        if(a[i] + a[mid] <= r){
-            ans = mid;
-            lo = mid + 1;
+        if(a[mid] >= l - a[i]){
+            lb = mid;
+            hi = mid - 1;
         }
         else{
-            hi = mid - 1;
+            lo = mid + 1;
         }
     }
 
-    cnt1 += ans - i;
-
+    // Upper bound: first element > r - a[i]
     lo = i + 1;
     hi = n - 1;
-
-    // Count pairs with sum < l
-    ans = i;
+    int ub = n;
 
     while(lo <= hi){
         int mid = (lo + hi) / 2;
 
-        if(a[i] + a[mid] < l){
-            ans = mid;
-            lo = mid + 1;
+        if(a[mid] > r - a[i]){
+            ub = mid;
+            hi = mid - 1;
         }
         else{
-            hi = mid - 1;
+            lo = mid + 1;
         }
     }
 
-    cnt2 += ans - i;
+    cnt += ub - lb;
 }
 
-cout << cnt1 - cnt2 << endl;
+cout << cnt << endl;
 }
 int32_t main()
 {
