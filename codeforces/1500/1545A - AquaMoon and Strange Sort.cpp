@@ -44,7 +44,7 @@ sort(all(a));
 }
 
 for(int i = 0;i< n;i++){
-  if(mp1odd[a[i]] != mp2odd[a[i]] || mp2even[a[i]] != mp2even[a[i]]){
+  if(mp1odd[a[i]] != mp2odd[a[i]] || mp1even[a[i]] != mp2even[a[i]]){
     cout<<"NO"<<endl;
     return;
   }
