@@ -1,33 +1,47 @@
 class Solution {
 public:
     int trap(vector<int>& height) {
-     int n = height.size();
+   int n= height.size();
+   vector<int> leftgreatest(n , 0) , rightgreatest(n , 0);
 
-        int left = 0, right = n - 1;
-        int leftMax = 0, rightMax = 0;
-        int water = 0;
+   stack<int> st;
+   for(int i = n-1;i >= 0;i--){
+    while(st.empty() == false && st.top() <= height[i]){
+        st.pop();
+    }
 
-        while (left <= right) {
-            if (height[left] <= height[right]) {
-                if (height[left] >= leftMax) {
-                    leftMax = height[left];
-                } 
-                else {
-                    water += leftMax - height[left];
-                }
-                left++;
-            }
-            else {
-                if (height[right] >= rightMax) {
-                    rightMax = height[right];
-                }
-                else {
-                    water += rightMax - height[right];
-                }
-                right--;
-            }
-        }
+    if(st.empty() == true){
+        rightgreatest[i] = -1;
+    }
+    else {
+        rightgreatest[i] = st.top();
+    }
+    if(st.empty() == true || height[i] > st.top()){
+        st.push(height[i]);
+    }
+   }
+   st  = {};
+     for(int i = 0;i <n ;i++){
+    while(st.empty() == false && st.top() <= height[i]){
+        st.pop();
+    }
 
-        return water;
+    if(st.empty() == true){
+        leftgreatest[i] =-1;
+    }
+    else {
+        leftgreatest[i] = st.top();
+    }
+    if(st.empty() == true || height[i] > st.top()){
+        st.push(height[i]);
+    }
+   }
+   int ans = 0;
+   for(int i = 0;i< n;i++){
+  if(leftgreatest[i] == -1 || rightgreatest[i] == -1)continue;
+
+  ans += min(leftgreatest[i] , rightgreatest[i]) - height[i];
+   }
+   return ans;
     }
 };
