@@ -14,7 +14,7 @@ public:
 
             curr[s[i] - 'a']--;
 
-            if(instack[s[i] - 'a']) continue;
+            if(instack[s[i] - 'a'] != 0) continue;
 
             while(st.empty() == false &&
                   st.top() > s[i] &&
